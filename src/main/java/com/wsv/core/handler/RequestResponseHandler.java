@@ -18,7 +18,14 @@ import java.io.IOException;
 public class RequestResponseHandler implements Preparable {
     private HttpServletResponse response;
 
-    @Override public RequestModel prepareRequest(HttpServletRequest request) throws IllegalArgumentException {
+    /**
+     * Read the HttpServletRequest create a RequestModel by assigning request data.
+     * @param request HttpServletRequest instance
+     * @return RequestModel
+     * @throws IllegalArgumentException when the request is null
+     */
+    @Override
+    public RequestModel prepareRequest(HttpServletRequest request) throws IllegalArgumentException {
         if (request == null) {
             throw new IllegalArgumentException("Http request cannot be null");
         }
@@ -46,7 +53,14 @@ public class RequestResponseHandler implements Preparable {
         return requestModel;
     }
 
-    @Override public void sendResponse(JSONObject data, HttpServletResponse response) throws HttpResponseException {
+    /**
+     * Prepare the response by adding JSON payload and setting the content type as applicaiton/json
+     * @param data response data
+     * @param response HttpServletResponse
+     * @throws HttpResponseException When the response cannot be written.
+     */
+    @Override
+    public void sendResponse(JSONObject data, HttpServletResponse response) throws HttpResponseException {
         if (data == null) {
             throw new IllegalArgumentException("Response body cannot be null");
         }
