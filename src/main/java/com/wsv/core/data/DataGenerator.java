@@ -126,56 +126,6 @@ public class DataGenerator {
         return dataJson;
     }
 
-    public static JSONObject generate(SimpleDataFormatModel simpleDataFormat) {
-        if (simpleDataFormat == null) {
-            throw new IllegalArgumentException("SimpleDataFormatModel cannot be null");
-        }
-
-        JSONObject dataJson = new JSONObject();
-        if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.NAME.getValue())) {
-            if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.YES) {
-                dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
-            } else {
-                dataJson.put(simpleDataFormat.getType(), DataGenerator.getName().name());
-            }
-        } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.ADDRESS.getValue())) {
-            if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.YES) {
-                dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
-            } else {
-                dataJson.put(simpleDataFormat.getType(), DataGenerator.getAddress().fullAddress());
-            }
-        } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.DATE.getValue())) {
-            if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.YES) {
-                dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
-            } else {
-                dataJson.put(simpleDataFormat.getType(), DataGenerator.getDateAndTime().birthday());
-            }
-        } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.PHONE_NUMBER.getValue())) {
-            if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.YES) {
-                dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
-            } else {
-                dataJson.put(simpleDataFormat.getType(), DataGenerator.getPhoneNumber().phoneNumber());
-            }
-        } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.COUNTRY.getValue())) {
-            if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.YES) {
-                dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
-            } else {
-                dataJson.put(simpleDataFormat.getType(), DataGenerator.getChuckNorris().fact());
-            }
-        } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.COMPANY.getValue())) {
-            if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.YES) {
-                dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
-            } else {
-                dataJson.put(simpleDataFormat.getType(), DataGenerator.getCompany().name());
-            }
-        } else {
-            throw new IllegalArgumentException("Data type is not supporting " + simpleDataFormat.getType());
-        }
-
-        return dataJson;
-    }
-
-
     private static Address getAddress() {
         return faker.address();
     }
