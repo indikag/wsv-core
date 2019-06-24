@@ -90,6 +90,11 @@ public class HandlerAction extends ActionSupport implements ServletRequestAware,
                 }
             }
 
+            if (!requestedMethod.getType().equalsIgnoreCase(this.requestHandler.getHttpMethod())) {
+                throw new UnsupportedOperationException("Requested http method is not supported. requested = "
+                        + requestedMethod.getType() + " provided = " + this.requestHandler.getHttpMethod());
+            }
+
             //generate data for the service
             Processor processor = new Processor(this.serviceModel);
             JSONObject out = processor.getResponse(requestedMethod.getMethodName());
