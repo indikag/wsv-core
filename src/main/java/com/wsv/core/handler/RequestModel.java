@@ -12,6 +12,7 @@ public class RequestModel {
     private String serviceId;
     private String serviceMethod;
     private String requestBody;
+    private String httpMethod;
     private Enumeration<String> serviceParameters;
 
     public String getServiceId() {
@@ -44,5 +45,24 @@ public class RequestModel {
 
     public void setRequestBody(String requestBody) {
         this.requestBody = requestBody;
+    }
+
+    public String getHttpMethod() {
+        return httpMethod;
+    }
+
+    public void setHttpMethod(String httpMethod) {
+        this.httpMethod = httpMethod;
+    }
+
+    @Override
+    public String toString() {
+        return "RequestModel{" +
+                "serviceId='" + serviceId + '\'' +
+                ", serviceMethod='" + serviceMethod + '\'' +
+                ", requestBody='" + requestBody + '\'' +
+                ", httpMethod='" + httpMethod + '\'' +
+                ", serviceParameters=" + serviceParameters +
+                '}';
     }
 }
