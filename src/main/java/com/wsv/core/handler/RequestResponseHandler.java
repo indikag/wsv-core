@@ -48,6 +48,7 @@ public class RequestResponseHandler implements Preparable {
         requestModel.setServiceId(requestURI[requestURI.length - 2]);
         requestModel.setServiceMethod(requestURI[requestURI.length - 1]);
         requestModel.setServiceParameters(request.getParameterNames());
+        requestModel.setHttpMethod(request.getMethod());
         requestModel.setRequestBody(requestBody);
 
         return requestModel;
