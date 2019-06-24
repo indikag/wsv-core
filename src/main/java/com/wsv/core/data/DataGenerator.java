@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 /**
  * Generate random data
@@ -40,27 +41,77 @@ public class DataGenerator {
             if (simpleDataFormat != null && complexDataFormat == null) {
                 //Found simple data
                 if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.NAME.getValue())) {
-                    if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.YES) {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
-                    } else {
+                    if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
                         dataJson.put(simpleDataFormat.getType(), DataGenerator.getName().name());
+                    } else {
+                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
                     }
                 } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.ADDRESS.getValue())) {
-                    dataJson.put(simpleDataFormat.getType(), DataGenerator.getAddress().fullAddress());
+                    if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
+                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getAddress().fullAddress());
+                    } else {
+                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                    }
                 } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.DATE.getValue())) {
-                    dataJson.put(simpleDataFormat.getType(), DataGenerator.getDateAndTime().birthday());
+                    if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
+                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getDateAndTime().birthday());
+                    } else {
+                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                    }
                 } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.PHONE_NUMBER.getValue())) {
-                    dataJson.put(simpleDataFormat.getType(), DataGenerator.getPhoneNumber().phoneNumber());
+                    if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
+                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getPhoneNumber().phoneNumber());
+                    } else {
+                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                    }
                 } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.COUNTRY.getValue())) {
-                    dataJson.put(simpleDataFormat.getType(), DataGenerator.getChuckNorris().fact());
+                    if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
+                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getChuckNorris().fact());
+                    } else {
+                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                    }
                 } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.COMPANY.getValue())) {
-                    dataJson.put(simpleDataFormat.getType(), DataGenerator.getCompany().name());
+                    if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
+                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getCompany().name());
+                    } else {
+                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                    }
                 } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.BOOLEAN.getValue())) {
-                    dataJson.put(simpleDataFormat.getType(), DataGenerator.getBool().bool());
+                    if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
+                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getBool().bool());
+                    } else {
+                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                    }
                 } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.AGE.getValue())) {
-                    dataJson.put(simpleDataFormat.getType(), DataGenerator.getAge());
+                    if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
+                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getAge());
+                    } else {
+                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                    }
                 } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.PARAGRAPH.getValue())) {
-                    dataJson.put(simpleDataFormat.getType(), DataGenerator.getArbitraryParagraph());
+                    if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
+                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getArbitraryParagraph());
+                    } else {
+                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                    }
+                } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.EMAIL.getValue())) {
+                    if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
+                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getEmail());
+                    } else {
+                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                    }
+                } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.BOOK.getValue())) {
+                    if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
+                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getBook().title());
+                    } else {
+                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                    }
+                } else if (simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.UNIVERSITY.getValue())) {
+                    if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
+                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getUniversity().name());
+                    } else {
+                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                    }
                 } else {
                     throw new IllegalArgumentException("Data type is not supporting " + simpleDataFormat.getType());
                 }
@@ -268,5 +319,10 @@ public class DataGenerator {
 
     private static String getFixedString(int numberOfLetters) {
         return faker.lorem().fixedString(numberOfLetters);
+    }
+
+    private static String getEmail() {
+        String[] emailExt = {"gmail.com", "yahoo.com", "outlook.com", "aol.com", "zoho.com", "msn.com"};
+        return faker.name().firstName() + "@" + emailExt[new Random().nextInt(emailExt.length)];
     }
 }

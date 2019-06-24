@@ -12,7 +12,7 @@ public class Util {
      */
     public enum DataFormat {
         NAME("name"), ADDRESS("address"), DATE("date"), PHONE_NUMBER("phoneNumber"), COUNTRY("country"), COMPANY(
-                "company"), BOOLEAN("yes_no"), AGE("age"), PARAGRAPH("paragraph");
+                "company"), BOOLEAN("yes_no"), AGE("age"), PARAGRAPH("paragraph"), EMAIL("email"), BOOK("book"), UNIVERSITY("university");
 
         private final String format;
 
