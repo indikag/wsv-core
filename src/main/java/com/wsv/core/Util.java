@@ -50,6 +50,15 @@ public class Util {
                 case "paragraph":
                     df = PARAGRAPH;
                     break;
+                case "email":
+                    df = EMAIL;
+                    break;
+                case "book":
+                    df = BOOK;
+                    break;
+                case "university":
+                    df = UNIVERSITY;
+                    break;
                 default:
                     return null;
             }
