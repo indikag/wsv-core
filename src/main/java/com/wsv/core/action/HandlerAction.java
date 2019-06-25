@@ -39,48 +39,22 @@ public class HandlerAction extends ActionSupport implements ServletRequestAware,
     @Override public String execute() {
         try {
             String jsonString = null;
+            // get the service definition for the provided token.
             try {
                 jsonString = ServiceDal.getServiceDefinitionByToken(this.requestHandler.getServiceId());
             } catch (SQLException e) {
                 e.printStackTrace();
             }
 
+            // Validate the service for the provided token.
             if (jsonString == null) {
-                System.out.println("There is no service by the given token");
-                return null;
+                throw new IllegalArgumentException("There is no service for the provided token, token = " + this.requestHandler.getServiceId());
             }
 
-
-
-            // validate the service.
-            //String serviceToken = request.getServletPath().split("/")[1];
-            //String methodName = request.getServletPath().split("/")[2];
-            //System.out.println(serviceToken);
-            //System.out.println(methodName);
-
-
-
-            /*ServiceModel service1 = Helper.readJSONFile(
-                    "/Users/indikagunawardana/Personal/MCS/Final Project/Solution/Project/wsv/json/sample.json");
-            ServiceModel service2 = Helper.readJSONFile(
-                    "/Users/indikagunawardana/Personal/MCS/Final Project/Solution/Project/wsv/json/service2.json");*/
-            /*switch (requestHandler.getServiceId()) {
-                case "serv1":
-                    serviceModel = Helper.readJSONFile(
-                            "/Users/indikagunawardana/Personal/MCS/Final Project/Solution/Project/wsv/json/sample.json");
-                    break;
-                case "serv2":
-                    serviceModel = Helper.readJSONFile(
-                            "/Users/indikagunawardana/Personal/MCS/Final Project/Solution/Project/wsv/json/service2.json");
-                    break;
-                case "serv3":
-                    serviceModel = Helper.readJSONFile(
-                            "/Users/indikagunawardana/Personal/MCS/Final Project/Solution/Project/wsv/json/sample3.json");
-                    break;
-            }*/
-
+            // Prepare the service model from the JSON string
             serviceModel = Helper.readJSONString(jsonString);
 
+            // Find the method
             ArrayList<ServiceMethod> serviceMethods = serviceModel.getServiceMethods();
             String serviceMethod = this.requestHandler.getServiceMethod();
             for (ServiceMethod method : serviceMethods) {
@@ -90,6 +64,12 @@ public class HandlerAction extends ActionSupport implements ServletRequestAware,
                 }
             }
 
+            // Validate the requested method
+            if (requestedMethod == null) {
+                throw new IllegalArgumentException("Requested method is not available. Requested = " + this.requestHandler.getServiceMethod());
+            }
+
+            // Validate the HTTP method
             if (!requestedMethod.getType().equalsIgnoreCase(this.requestHandler.getHttpMethod())) {
                 throw new UnsupportedOperationException("Requested http method is not supported. requested = "
                         + requestedMethod.getType() + " provided = " + this.requestHandler.getHttpMethod());
