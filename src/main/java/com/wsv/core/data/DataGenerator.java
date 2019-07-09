@@ -45,107 +45,107 @@ public class DataGenerator {
                 if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.NAME.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getName().name());
+                        dataJson.put(formatModel.getName(), DataGenerator.getName().name());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 } else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.ADDRESS.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getAddress().fullAddress());
+                        dataJson.put(formatModel.getName(), DataGenerator.getAddress().fullAddress());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 } else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.DATE.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getDateAndTime().birthday());
+                        dataJson.put(formatModel.getName(), DataGenerator.getDateAndTime().birthday());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 } else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.PHONE_NUMBER.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getPhoneNumber().phoneNumber());
+                        dataJson.put(formatModel.getName(), DataGenerator.getPhoneNumber().phoneNumber());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 } else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.COUNTRY.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getChuckNorris().fact());
+                        dataJson.put(formatModel.getName(), DataGenerator.getChuckNorris().fact());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 } else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.COMPANY.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getCompany().name());
+                        dataJson.put(formatModel.getName(), DataGenerator.getCompany().name());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 } else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.BOOLEAN.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getBool().bool());
+                        dataJson.put(formatModel.getName(), DataGenerator.getBool().bool());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 } else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.AGE.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getAge());
+                        dataJson.put(formatModel.getName(), DataGenerator.getAge());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 } else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.PARAGRAPH.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getArbitraryParagraph());
+                        dataJson.put(formatModel.getName(), DataGenerator.getArbitraryParagraph());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 } else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.EMAIL.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getEmail());
+                        dataJson.put(formatModel.getName(), DataGenerator.getEmail());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 } else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.BOOK.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getBook().title());
+                        dataJson.put(formatModel.getName(), DataGenerator.getBook().title());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 } else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.UNIVERSITY.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getUniversity().name());
+                        dataJson.put(formatModel.getName(), DataGenerator.getUniversity().name());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 } else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.INTEGER.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getNumber().numberBetween(0, 100));
+                        dataJson.put(formatModel.getName(), DataGenerator.getNumber().numberBetween(0, 100));
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 }  else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.FLOATING_NUMBER.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getFloat());
+                        dataJson.put(formatModel.getName(), DataGenerator.getFloat());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 }  else if (simpleDataFormat.getType() != null &&
                         simpleDataFormat.getType().equalsIgnoreCase(Util.DataFormat.PRICE.getValue())) {
                     if (Util.DefaultValueStatus.parseEnum(simpleDataFormat.getSpecific()) == Util.DefaultValueStatus.NO) {
-                        dataJson.put(simpleDataFormat.getType(), DataGenerator.getPrice());
+                        dataJson.put(formatModel.getName(), DataGenerator.getPrice());
                     } else {
-                        dataJson.put(simpleDataFormat.getType(), simpleDataFormat.getDefaultValue());
+                        dataJson.put(formatModel.getName(), simpleDataFormat.getDefaultValue());
                     }
                 } else {
                     throw new IllegalArgumentException("Data type is not supporting " + simpleDataFormat.getType());
