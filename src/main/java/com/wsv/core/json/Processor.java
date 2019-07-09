@@ -59,14 +59,15 @@ public class Processor {
         int minSize = method.getResponse().getMinSize() == null? 1 : method.getResponse().getMinSize();
         int maxSize = method.getResponse().getMaxSize() == null? 1 : method.getResponse().getMaxSize();
         //creation of the list
-        for (int a = minSize; a <= maxSize; a++) {
-            //creation of a single item
-            JSONObject item = DataGenerator.generate(format);
-            out.append(method.getResponse().getName(), item);
+        if (maxSize == 1) {
+            out = DataGenerator.generate(format);
+        } else {
+            for (int a = minSize; a <= maxSize; a++) {
+                //creation of a single item
+                JSONObject item = DataGenerator.generate(format);
+                out.append(method.getResponse().getName(), item);
+            }
         }
-
-        System.out.println("==========");
-        System.out.println(out.toString());
 
         return out;
     }
