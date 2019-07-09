@@ -56,8 +56,8 @@ public class Processor {
         JSONObject out = new JSONObject();
 
         //for models max size will be 1, for list it can be  any number which is >1
-        int minSize = method.getResponse().getMinSize();
-        int maxSize = method.getResponse().getMaxSize();
+        int minSize = method.getResponse().getMinSize() == null? 1 : method.getResponse().getMinSize();
+        int maxSize = method.getResponse().getMaxSize() == null? 1 : method.getResponse().getMaxSize();
         //creation of the list
         for (int a = minSize; a <= maxSize; a++) {
             //creation of a single item
