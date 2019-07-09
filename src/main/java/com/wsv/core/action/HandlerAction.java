@@ -81,7 +81,7 @@ public class HandlerAction extends ActionSupport implements ServletRequestAware,
             ArrayList<String> parameters = requestedMethod.getParameterNames();//current request
             while (serviceParameters.hasMoreElements()) {
                 String param = serviceParameters.nextElement();
-                if (!parameters.contains(param)) {
+                if (!parameters.isEmpty() && !parameters.contains(param)) {
                     throw new UnsupportedOperationException("Required parameter is not included. Parameter is " + param);
                 }
             }
