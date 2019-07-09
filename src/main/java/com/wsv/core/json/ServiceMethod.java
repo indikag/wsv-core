@@ -34,6 +34,15 @@ public class ServiceMethod {
         return parameters;
     }
 
+    public ArrayList<String> getParameterNames() {
+        ArrayList<String> items = new ArrayList<>();
+        for (MethodParameterModel model :
+                parameters) {
+            items.add(model.getParameterName());
+        }
+        return items;
+    }
+
     public void setParameters(ArrayList<MethodParameterModel> parameters) {
         this.parameters = parameters;
     }
