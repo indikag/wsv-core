@@ -23,10 +23,11 @@ public class ServiceDal {
         }
 
         String json = null;
+        Connection connection = null;
         try {
             int index = 1;
             BasicDataSource dataSource = DataBaseUtility.getDataSource();
-            Connection connection = dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM service WHERE token = ? AND published = 1");
             pstmt.setString(index, token);
 
@@ -43,6 +44,10 @@ public class ServiceDal {
             throw new SQLException();
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                connection.close();
+            }
         }
 
         return json;
