@@ -12,7 +12,8 @@ public class Util {
      */
     public enum DataFormat {
         NAME("name"), ADDRESS("address"), DATE("date"), PHONE_NUMBER("phoneNumber"), COUNTRY("country"), COMPANY(
-                "company"), BOOLEAN("yes_no"), AGE("age"), PARAGRAPH("paragraph"), EMAIL("email"), BOOK("book"), UNIVERSITY("university");
+                "company"), BOOLEAN("yes_no"), AGE("age"), PARAGRAPH("paragraph"), EMAIL("email"), BOOK("book"),
+        UNIVERSITY("university"), INTEGER("integer"), FLOATING_NUMBER("float"), PRICE("price");
 
         private final String format;
 
@@ -58,6 +59,15 @@ public class Util {
                     break;
                 case "university":
                     df = UNIVERSITY;
+                    break;
+                case "integer":
+                    df = INTEGER;
+                    break;
+                case "float":
+                    df = FLOATING_NUMBER;
+                    break;
+                case "price":
+                    df = PRICE;
                     break;
                 default:
                     return null;
