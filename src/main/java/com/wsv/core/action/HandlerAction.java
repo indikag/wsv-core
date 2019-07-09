@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 
 public class HandlerAction extends ActionSupport implements ServletRequestAware, ServletResponseAware {
     private HttpServletRequest request;
@@ -73,6 +74,16 @@ public class HandlerAction extends ActionSupport implements ServletRequestAware,
             if (!requestedMethod.getType().equalsIgnoreCase(this.requestHandler.getHttpMethod())) {
                 throw new UnsupportedOperationException("Requested http method is not supported. requested = "
                         + requestedMethod.getType() + " provided = " + this.requestHandler.getHttpMethod());
+            }
+
+            //validate request parameters
+            Enumeration<String> serviceParameters = requestHandler.getServiceParameters();//json file
+            ArrayList<String> parameters = requestedMethod.getParameterNames();//current request
+            while (serviceParameters.hasMoreElements()) {
+                String param = serviceParameters.nextElement();
+                if (!parameters.contains(param)) {
+                    throw new UnsupportedOperationException("Required parameter is not included. Parameter is " + param);
+                }
             }
 
             //generate data for the service
