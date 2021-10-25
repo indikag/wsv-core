@@ -9,7 +9,7 @@
     <name>wsv</name>
 
     <properties>
-        <struts2.version>2.5.14.1</struts2.version>
+        <struts2.version>2.5.16</struts2.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -125,7 +125,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.16</version>
+            <version>8.0.27</version>
         </dependency>
 
     </dependencies>
